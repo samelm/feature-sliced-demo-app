@@ -5,7 +5,7 @@
   "quoteProps": "consistent",
   "endOfLine": "lf",
   "trailingComma": "all",
-  "importOrder": ["^@project/(.*)$", "^[./]"],
+  "importOrder": ["^@brunhild/(.*)$", "^[./]"],
   "importOrderSeparation": false,
   "experimentalBabelParserPluginsList": ["jsx", "typescript"]
 }

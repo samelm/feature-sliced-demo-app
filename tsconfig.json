@@ -28,7 +28,7 @@
     "sourceMap": true,
     "baseUrl": "./src",
     "paths": {
-      "@project/*": ["./*"]
+      "@brunhild/*": ["./*"]
     },
     "pretty": true,
     "skipLibCheck": true,

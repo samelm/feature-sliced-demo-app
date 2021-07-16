@@ -37,7 +37,6 @@ export default (env: any, { mode }: { mode: 'production' | 'development' }) => {
             },
           ],
         },
-
         {
           test: /\.css$/,
           use: [
@@ -50,11 +49,20 @@ export default (env: any, { mode }: { mode: 'production' | 'development' }) => {
             { loader: 'postcss-loader' },
           ],
         },
+        {
+          test: /\.(png|svg|jpg|jpeg|gif)$/i,
+          type: 'asset/resource',
+        },
+        {
+          test: /\.(woff|woff2|eot|ttf|otf)$/i,
+          type: 'asset/resource',
+        },
       ],
     },
     plugins: [
       new HtmlWebPackPlugin({
         template: path.resolve(__dirname, 'src', 'index.html'),
+        favicon: path.resolve(__dirname, 'favicon.ico'),
       }),
       new CleanWebpackPlugin(),
       new MiniCssExtractPlugin({
@@ -63,9 +71,9 @@ export default (env: any, { mode }: { mode: 'production' | 'development' }) => {
       isDevelopment && new ReactRefreshWebpackPlugin(),
     ].filter(Boolean) as any,
     resolve: {
-      extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      extensions: ['.js', '.jsx', '.ts', '.tsx', '.png'],
       alias: {
-        '@project': path.resolve(__dirname, 'src'),
+        '@brunhild': path.resolve(__dirname, 'src'),
       },
     },
     devServer: {
