@@ -8,7 +8,8 @@
     "build": "TS_NODE_PROJECT=tsconfig-for-webpack-config.json webpack --mode production",
     "start": "TS_NODE_PROJECT=tsconfig-for-webpack-config.json webpack serve --mode development",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
@@ -30,6 +31,10 @@
     "@storybook/addon-links": "^6.3.4",
     "@storybook/addon-postcss": "^2.0.0",
     "@storybook/react": "^6.3.4",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.0.0",
+    "@testing-library/user-event": "^13.1.9",
+    "@types/jest": "^26.0.24",
     "@types/node": "^16.3.2",
     "@types/react": "^17.0.14",
     "@types/react-dom": "^17.0.9",
@@ -44,6 +49,7 @@
     "eslint": "7.10.0",
     "eslint-import-resolver-typescript": "^2.4.0",
     "html-webpack-plugin": "^5.3.2",
+    "jest": "^27.0.6",
     "mini-css-extract-plugin": "^2.1.0",
     "postcss": "^8.3.5",
     "postcss-import": "^14.0.2",
@@ -61,5 +67,10 @@
   "dependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "<rootDir>/setupTests.js"
+    ]
   }
 }

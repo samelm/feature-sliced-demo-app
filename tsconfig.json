@@ -36,6 +36,6 @@
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
     "target": "es2016",
-    "types": ["react", "node"]
+    "types": ["react", "node", "jest", "@testing-library/jest-dom"]
   }
 }

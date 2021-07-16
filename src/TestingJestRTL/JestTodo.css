@@ -1,0 +1,67 @@
+.wrapper {
+  margin-left: 5%;
+  padding: 20px;
+  background-color: aliceblue;
+}
+
+.list {
+  padding-left: 0;
+  list-style: none;
+}
+
+.elem {
+  font-size: 24px;
+  color: black;
+  text-align: left;
+}
+
+.inputWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.input {
+  padding: 5px;
+  margin-right: 20px;
+}
+
+.addButton {
+  font-size: 20px;
+  line-height: 20px;
+}
+
+.removeButton {
+  font-size: 20px;
+  margin-right: 20px;
+  color: black;
+  border: 1px solid black;
+  padding: 5px;
+  border-radius: 5px;
+  line-height: 15px;
+  cursor: pointer;
+}
+
+.element {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0;
+  color: black;
+}
+
+.removeElement {
+  color: black;
+  font-size: 14px;
+  border: 1px solid black;
+  margin-left: 20px;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
