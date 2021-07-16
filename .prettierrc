@@ -1,0 +1,11 @@
+{
+  "semi": true,
+  "singleQuote": true,
+  "tabWidth": 2,
+  "quoteProps": "consistent",
+  "endOfLine": "lf",
+  "trailingComma": "all",
+  "importOrder": ["^@project/(.*)$", "^[./]"],
+  "importOrderSeparation": false,
+  "experimentalBabelParserPluginsList": ["jsx", "typescript"]
+}
