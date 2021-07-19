@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import axios from 'axios';
 import React from 'react';
 import JestTodo from './JestTodo';
 
@@ -8,6 +9,9 @@ test('renders button', () => {
   const button = screen.getByText(/Add ToDo/i);
   expect(button).toBeInTheDocument();
 });
+
+jest.mock('axios');
+const mockedAxios = axios as jest.Mocked<typeof axios>;
 
 const todos = [
   { name: 'ToDo 1' },
@@ -32,6 +36,7 @@ const setup = () => {
   const list = utils.getByRole('list');
   const listItem = utils.queryByRole('listitem');
   const listItems = utils.queryAllByRole('listitem');
+
   return {
     input,
     buttonClearInput,
@@ -69,8 +74,13 @@ describe('General testing component', () => {
   });
 
   it('Todo item: removal from the list', async () => {
-    const { input, buttonAddElement, listItem, findByRole, findByText } =
-      setup();
+    const {
+      input,
+      buttonAddElement,
+      listItem,
+      findByRole,
+      findByText,
+    } = setup();
     const text = 'Купить продукты';
     userEvent.type(input, text); // Ввод значения в интуп
     userEvent.click(buttonAddElement); // Нажатие на кнопку добавления туду в лист
@@ -89,6 +99,7 @@ describe('General testing component', () => {
       findAllByRole,
       findByText,
     } = setup();
+
     mockedAxios.get.mockImplementationOnce(() =>
       Promise.resolve({ data: todos }),
     );

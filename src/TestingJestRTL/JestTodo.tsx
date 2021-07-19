@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import './JestTodo.css';
 
@@ -22,8 +23,8 @@ const JestTodo: React.FC = () => {
     setElems(elems.filter((e: string, i: number) => i !== indexElement));
 
   const loadElements = async () => {
-    await fetch('https://jsonplaceholder.typicode.com/users')
-      .then((res) => res.json())
+    await axios
+      .get('https://jsonplaceholder.typicode.com/users')
       .then((response: { data: Array<User> }) => {
         setElems([...elems, ...response.data.map((user: User) => user.name)]);
       })
