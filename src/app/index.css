@@ -7,10 +7,3 @@ body {
 #app {
   height: 100vh;
 }
-
-.main {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-}
