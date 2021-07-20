@@ -1,5 +1,5 @@
 import { combine, createEvent, createStore, sample } from 'effector';
-import { loginUserFx } from '@brunhild/entity/user/auth';
+import { loginUserFx } from '@brunhild/entities/user/auth';
 
 export const loginChanged = createEvent<string>();
 export const passwordChanged = createEvent<string>();

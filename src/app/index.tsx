@@ -1,6 +1,6 @@
 import React from 'react';
 import { Router } from 'react-router';
-import { initAuthFx } from '@brunhild/entity/user/auth';
+import { initAuthFx } from '@brunhild/entities/user/auth';
 import { runMockServer } from '@brunhild/mock-server';
 import { Pages } from '@brunhild/pages';
 import { history } from '@brunhild/shared/config';

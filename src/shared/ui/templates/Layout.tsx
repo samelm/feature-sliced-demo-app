@@ -4,7 +4,7 @@ import Container from '@material-ui/core/Container';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import React from 'react';
-import { logoutUserFx } from '@brunhild/entity/user/auth';
+import { logoutUserFx } from '@brunhild/entities/user/auth';
 
 interface Props {
   children: React.ReactNode;

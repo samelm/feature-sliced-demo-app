@@ -1,7 +1,7 @@
 import { useStore } from 'effector-react';
 import React from 'react';
-import { $projects, loadProjectsFx } from '@brunhild/entity/project';
-import { ProjectCard } from '@brunhild/entity/project/ui/ProjectCard';
+import { $projects, loadProjectsFx } from '@brunhild/entities/project';
+import { ProjectCard } from '@brunhild/entities/project/ui/ProjectCard';
 import { Layout } from '@brunhild/shared/ui';
 
 export function HomePage() {
