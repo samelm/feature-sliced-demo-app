@@ -4,7 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import { useStore } from 'effector-react';
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import { $authUser } from '@brunhild/entities/user/auth';
+import { $authUser } from '@brunhild/entities/user';
 import { paths } from '../paths';
 import { loginChanged, loginFormSubmit, passwordChanged } from './formModel';
 

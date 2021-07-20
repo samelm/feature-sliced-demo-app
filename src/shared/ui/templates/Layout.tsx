@@ -4,7 +4,6 @@ import Container from '@material-ui/core/Container';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import React from 'react';
-import { logoutUserFx } from '@brunhild/entities/user/auth';
 
 interface Props {
   children: React.ReactNode;
@@ -22,7 +21,7 @@ export function Layout(props: Props) {
   const { children } = props;
 
   const handleLogoutClick = () => {
-    logoutUserFx();
+    console.log('logout');
   };
 
   return (
