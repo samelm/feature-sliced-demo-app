@@ -1,4 +1,4 @@
-import { createEffect, createStore, forward } from 'effector';
+import { createEffect } from 'effector';
 import { paths } from '@brunhild/pages/paths';
 import {
   loginUser,
@@ -7,10 +7,6 @@ import {
   UserLoginRequest,
 } from '@brunhild/shared/api';
 import { history } from '@brunhild/shared/config';
-
-export interface AuthUser {
-  name: string;
-}
 
 export const loginUserFx = createEffect({
   handler: async (loginData: UserLoginRequest) => {
@@ -36,9 +32,11 @@ export const afterUserLogoutFx = createEffect({
   },
 });
 
-export const $authUser = createStore<AuthUser | null>(null);
-
-export const $isAuthenticated = $authUser.map((user) => user !== null);
+export const redirectToLoginFx = createEffect({
+  handler: () => {
+    history.push(paths.login());
+  },
+});
 
 export const initAuthFx = createEffect({
   handler: () => {
@@ -50,29 +48,4 @@ export const initAuthFx = createEffect({
 
     return JSON.parse(authLS);
   },
-});
-
-const redirectToLoginFx = createEffect({
-  handler: () => {
-    history.push(paths.login());
-  },
-});
-
-$authUser
-  .on(loginUserFx.doneData, (_, user) => user)
-  .on(initAuthFx.doneData, (_, user) => user)
-  .reset(logoutUserFx);
-
-forward({ from: initAuthFx.fail, to: redirectToLoginFx });
-
-forward({ from: logoutUserFx.done, to: redirectToLoginFx });
-
-forward({
-  from: loginUserFx.doneData,
-  to: afterUserLoginFx,
-});
-
-forward({
-  from: logoutUserFx.done,
-  to: afterUserLogoutFx,
 });
