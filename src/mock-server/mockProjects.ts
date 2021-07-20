@@ -1,4 +1,4 @@
-import { Project } from '@brunhild/shared/api/projects';
+import { Project } from '@brunhild/shared/api';
 
 export const mockProjects: Project[] = [
   { id: 1, name: 'Youtube', description: 'Watch videos' },

@@ -1,6 +1,5 @@
 import { createEffect, createStore } from 'effector';
-import { getProjects } from '@brunhild/shared/api';
-import { Project } from '@brunhild/shared/api/projects';
+import { getProjects, Project } from '@brunhild/shared/api';
 
 export const $projects = createStore<Project[]>([]);
 

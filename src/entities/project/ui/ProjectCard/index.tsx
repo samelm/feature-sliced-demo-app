@@ -4,7 +4,7 @@ import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import React from 'react';
-import { Project } from '@brunhild/shared/api/projects';
+import { Project } from '@brunhild/shared/api';
 
 interface Props {
   project: Project;

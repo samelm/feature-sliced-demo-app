@@ -5,7 +5,7 @@ import {
   logoutUser,
   User,
   UserLoginRequest,
-} from '@brunhild/shared/api/auth';
+} from '@brunhild/shared/api';
 import { history } from '@brunhild/shared/config';
 
 export interface AuthUser {
