@@ -24,7 +24,7 @@ const mockUser: User = {
 
 export function loginUser(
   loginUserData: UserLoginRequest,
-): Promise<UserLoginResponse> {
+): Promise<UserLoginResponse> | null {
   if (
     loginUserData.login === mockUser.login &&
     loginUserData.password === '12345'

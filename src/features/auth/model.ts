@@ -1,4 +1,5 @@
-import { createEffect } from 'effector';
+import { createEffect, forward, merge } from 'effector';
+import { setAuthUser } from '@brunhild/entities/user';
 import { paths } from '@brunhild/pages/paths';
 import {
   loginUser,
@@ -11,18 +12,23 @@ import { history } from '@brunhild/shared/config';
 export const loginUserFx = createEffect({
   handler: async (loginData: UserLoginRequest) => {
     const loginRes = await loginUser(loginData);
-    return loginRes.user;
+    return loginRes?.user || null;
   },
 });
 
 export const logoutUserFx = createEffect({
-  handler: () => logoutUser(),
+  handler: async () => {
+    await logoutUser();
+    return null;
+  },
 });
 
 export const afterUserLoginFx = createEffect({
-  handler: (userData: User) => {
-    localStorage.setItem('authUser', JSON.stringify(userData));
-    history.push(paths.home());
+  handler: (userData: User | null) => {
+    if (userData) {
+      localStorage.setItem('authUser', JSON.stringify(userData));
+      history.push(paths.home());
+    }
   },
 });
 
@@ -48,4 +54,23 @@ export const initAuthFx = createEffect({
 
     return JSON.parse(authLS);
   },
+});
+
+forward({
+  from: merge([
+    loginUserFx.doneData,
+    initAuthFx.doneData,
+    logoutUserFx.doneData,
+  ]),
+  to: setAuthUser,
+});
+
+forward({
+  from: merge([initAuthFx.fail, logoutUserFx.done]),
+  to: redirectToLoginFx,
+});
+
+forward({
+  from: merge([loginUserFx.doneData, logoutUserFx.doneData]),
+  to: afterUserLoginFx,
 });
