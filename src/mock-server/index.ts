@@ -34,6 +34,13 @@ export function runMockServer({ environment = 'test' } = {}) {
       this.get('/projects', (schema: ServerSchema) => {
         return schema.all('project');
       });
+
+      this.patch('/projects/:id', (schema: any, request) => {
+        const newAttrs = JSON.parse(request.requestBody);
+        const id = request.params.id;
+        const project = schema.find('project', id);
+        return project.update(newAttrs);
+      });
     },
   });
 

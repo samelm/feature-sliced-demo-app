@@ -1,3 +1,4 @@
+import CircularProgress from '@material-ui/core/CircularProgress';
 import { useStore } from 'effector-react';
 import React from 'react';
 import { $projects, loadProjectsFx } from '@brunhild/entities/project';
@@ -15,9 +16,11 @@ export function HomePage() {
   return (
     <Layout>
       <Layout.Title>Project list</Layout.Title>
-      {projects.map((project) => (
-        <ProjectCard key={project.id} project={project} />
-      ))}
+      {loadingProjects ? (
+        <CircularProgress />
+      ) : (
+        projects.map((project) => <ProjectCard key={project.id} project={project} />)
+      )}
     </Layout>
   );
 }

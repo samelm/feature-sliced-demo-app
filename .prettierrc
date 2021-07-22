@@ -4,6 +4,7 @@
   "tabWidth": 2,
   "quoteProps": "consistent",
   "endOfLine": "lf",
+  "printWidth": 100,
   "trailingComma": "all",
   "importOrder": ["^@brunhild/(.*)$", "^[./]"],
   "importOrderSeparation": false,

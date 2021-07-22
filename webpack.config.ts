@@ -19,7 +19,8 @@ export default (env: any, { mode }: { mode: 'production' | 'development' }) => {
     entry: './src/index.tsx',
     output: {
       path: path.resolve(__dirname, 'dist'),
-      filename: 'bundle.[contenthash].js',
+      filename: isDevelopment ? 'bundle.js' : 'bundle.[contenthash].js',
+      publicPath: '/',
     },
     module: {
       rules: [
@@ -66,7 +67,7 @@ export default (env: any, { mode }: { mode: 'production' | 'development' }) => {
       }),
       new CleanWebpackPlugin(),
       new MiniCssExtractPlugin({
-        filename: '[name].[contenthash].css',
+        filename: isDevelopment ? '[name].css' : '[name].[contenthash].css',
       }),
       isDevelopment && new ReactRefreshWebpackPlugin(),
     ].filter(Boolean) as any,
@@ -83,6 +84,7 @@ export default (env: any, { mode }: { mode: 'production' | 'development' }) => {
       hot: true,
       clientLogLevel: 'none',
       compress: true,
+      publicPath: '/',
     },
   };
 

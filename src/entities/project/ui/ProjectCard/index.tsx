@@ -4,6 +4,8 @@ import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { paths } from '@brunhild/pages/paths';
 import { Project } from '@brunhild/shared/api';
 
 interface Props {
@@ -20,7 +22,9 @@ export function ProjectCard(props: Props) {
           <div>{project.name}</div>
         </CardContent>
         <CardActions>
-          <Button size="small">Edit</Button>
+          <Button size="small" to={paths.projectEdit(String(project.id))} component={Link}>
+            Edit
+          </Button>
         </CardActions>
       </Card>
     </Box>
